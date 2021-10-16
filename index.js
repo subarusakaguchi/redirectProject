@@ -1,10 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const linkRouter = require('./routes/linkRouter')
+const path = require('path')
 const PORT = 8080
 const dbName = 'redirectProject'
 
 const app = express()
+
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
 
 mongoose.connect(`mongodb://localhost/${dbName}`)
 
